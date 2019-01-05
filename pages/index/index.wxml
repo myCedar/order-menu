@@ -1,0 +1,18 @@
+<!--index.wxml-->
+<view class="welcome">
+  <image src='/images/bg.png'></image>
+  <!-- <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view> -->
+  <!-- <view class='alertinfo' wx:if='{{!store_id}}'>
+    请输入点餐昵称，或者选择获取微信昵称进行点餐。(优先使用输入昵称)
+  </view> -->
+  <button class='btn-modal' bindtap='changeModal'>切换模式</button>
+  <view class="userinfo" wx:if='{{!store_id}}'>
+    <button open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取昵称 </button>
+    <input class='username' value='{{inputValue}}' placeholder='请输入昵称' bindinput='changeInput'></input>
+  </view>
+  <view class="begin-order" bindtap='beginOrder' wx:if="{{hasUserInfo||inputValue||store_id}}">
+    <text>开始点餐</text>
+  </view>
+</view>

@@ -1,0 +1,25 @@
+<!--pages/setting/setting.wxml-->
+<wxs module="filter" src="../../utils/filter.wxs"></wxs>
+<view class='setting'>
+  <view class='personName'>
+    <open-data class='avatar' type='userAvatarUrl'></open-data>
+    <open-data class='nickName' type='userNickName'></open-data>
+  </view>
+  <view class='menu-wrapper'>
+    <view class='menu-title'>我的</view>
+    <view class='menu-item' data-gturl="/pages/phone/phone" bindtap='goTo'>
+      <text class='sh-Mobile menu-icon'></text>
+      <text class='menu-text'>绑定手机号</text>
+      <text class='state'>{{phone ? filter.hidePhone(phone):"未绑定"}}</text>
+      <text class='right sh-right'></text>
+    </view>
+    <view class='menu-item' >
+      <text class='sh-coupons menu-icon'></text>
+      <text class='menu-text'>我要开店</text>
+      <text class='state'>点击前往商家版</text>
+      <navigator class='menu-nav' target="miniProgram" app-id='wxbdba0216200dee6a' open-type="navigate" />
+      <!-- <text class='right sh-right'></text> -->
+    </view>
+  </view>
+</view>
+

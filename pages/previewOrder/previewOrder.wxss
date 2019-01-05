@@ -1,0 +1,103 @@
+/* pages/previewOrder/previewOrder.wxss */
+.preview-order{
+  background-color: #fff;
+  overflow-y: auto;
+  height: 100%;
+}
+.order-title{
+  height: 80rpx;
+  line-height: 80rpx;
+  background-color: #eee;
+  color: #f58220;
+  font-size: 16px;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+}
+.order-detail{
+  border-top: 1px solid #eee;
+  box-sizing: border-box;
+  padding: 0 40rpx;
+}
+.order-item{
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #454545;
+  font-size: 14px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+  border-bottom: 1px solid #eee;
+}
+.order-head{
+  font-weight: 600;
+}
+.totle-order{
+  color: #f58220
+}
+.order-name{
+  flex: 1
+}
+.order-num{
+  width: 100rpx;
+  text-align: left
+}
+.order-price{
+  width: 160rpx;
+  text-align:right; 
+}
+.order-remark{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  box-sizing: border-box;
+  padding: 0 40rpx;
+  font-size: 14px;
+}
+.remark-title{
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #454545;
+  font-weight: 500;
+}
+.remark-content{
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #454545;
+  border: 1px solid #eee;
+  box-sizing: border-box;
+  padding: 0 20rpx;
+  width: 100%;
+}
+.order-btn{
+  margin-top: 20rpx;
+  box-sizing: border-box;
+  padding: 0 40rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 14px;
+  text-align: right;
+}
+.addMore{
+  display: inline-block;
+  height: 60rpx;
+  line-height: 60rpx;
+  color: #fff;
+  padding: 0 20rpx;
+  background-color: #00CCFF;
+  border-radius: 10rpx;
+  margin-left: 20rpx 
+}
+.sureOrder{
+  display: inline-block;
+  height: 60rpx;
+  line-height: 60rpx;
+  color: #fff;
+  padding: 0 20rpx;
+  background-color: #f58220;
+  border-radius: 10rpx ;
+  margin-left: 20rpx 
+}

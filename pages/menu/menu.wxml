@@ -1,0 +1,75 @@
+<!--pages/menu/menu.wxml-->
+<view class="container">
+  <view class='animation'  animation='{{animation1}}'>{{alertinfo}}</view>
+	<view class="header" style='margin-top:{{scrollDown?heaerderHeight:"0"}}px'>
+		<image class="logo" src="{{'https://www.cwscwh.xyz/'+store.headPictureUrl}}"/>
+		<view class="name ellipsis">{{store.store_name}}</view>
+		<view class="welcome ellipsis" wx:if='{{tableName}}'>总销量：{{count}} 当前桌号：{{tableName}}</view>
+    <view class="welcome ellipsis" wx:else>总销量：{{count}}</view>
+		<view class="line"></view>
+		<view class="desc">{{store.description}}</view>
+	</view>
+	<view class="content-container">
+		<scroll-view class="classify-container" scroll-y="true">
+      <view class="classify {{classifyViewed=='f0'?'active':''}}" bindtap="tapClassify" data-id='f0'>
+        <view class="name">热销</view>
+      </view>
+			<view class="classify {{classifyViewed=='f'+classify.id?'active':''}}" wx:for="{{foodList}}" wx:for-item="classify" wx:key="id" data-id="f{{classify.id}}" bindtap="tapClassify">
+				<view class="name">{{classify.name}}</view>
+			</view>
+		</scroll-view>
+		<scroll-view class="goods-container" scroll-y="true" scroll-into-view="{{classifySeleted}}" bindscroll="onGoodsScroll">
+      <view id="f0" class='food-list'>
+				<view class="title">热销Top10</view>
+				<view class="goods" wx:for="{{top10}}"  wx:key="id">
+					<image class="pic" src="{{item.picture_url}}"></image>
+					<view class="name ellipsis">{{item.f_name}}</view>
+					<view class="sold">总售{{item.total_sale}}  <text style='color:red;margin-left:10rpx' class='sh-fire'>{{item.praise_count}}</text></view>
+					<view class="price">￥{{item.price}}</view>
+					<view class="addCart" bindtap="tapAddCart" data-id="{{item.id}}">
+						<image src="/images/plus.png"></image>
+					</view>
+				</view>
+			</view>
+			<view wx:for="{{foodList}}" wx:for-item="foods" wx:key="id" id="f{{foods.id}}" class='food-list'>
+				<view class="title">{{foods.name}}</view>
+				<view class="goods" wx:for="{{foods.food}}"  wx:key="{{foods.food.id}}">
+					<image class="pic" src="{{foods.food[index].picture_url}}"></image>
+					<view class="name ellipsis">{{item.f_name}}</view>
+					<view class="sold">总售{{foods.food[index].total_sale}}  <text style='color:red;margin-left:10rpx' class='sh-fire'>{{item.praise_count}}</text></view>
+					<view class="price">￥{{foods.food[index].price}}</view>
+					<view class="addCart" bindtap="tapAddCart" data-id="{{foods.food[index].id}}">
+						<image src="/images/plus.png"></image>
+					</view>
+				</view>
+			</view>
+		</scroll-view>
+	</view>
+	<view class="cart-detail" hidden="{{!showCartDetail||!cartList.count}}">
+		<view class="mask" bindtap="hideCartDetail"></view>	
+		<scroll-view class="list" scroll-y='true'>
+			<view class="item" wx:for="{{cartList.list}}" wx:for-index="id" wx:for-item="item" wx:key="id">
+				<view class="name ellipsis">{{item.name}}</view>
+				<view class="total">￥{{item.price*item.count}}</view>
+				<view class="reduce" data-id="{{item.id}}" bindtap="tapReduceCart">-</view>
+				<view class="num">{{item.count}}</view>
+				<view class="add" data-id="{{item.id}}" bindtap="tapAddCart">+</view>
+			</view>
+		</scroll-view>
+		
+	</view>
+	<view class="cart">
+		<view class="data" bindtap="showCartDetail">
+			<view class="icon">
+				<text class='sh-shopcar'></text>
+				<view class="count">{{cartList.count}}</view>
+			</view>
+			<view class="total">￥{{cartList.total}}</view>
+		</view>
+		<form bindsubmit="submit" report-submit="true">
+			<!--<view formType="submit" class="submit">去结算</view>-->
+			<button class="yellow {{cartList.count?'':'hideBtn'}}" formType="submit">下单</button>
+		</form>
+	</view>
+</view>
+

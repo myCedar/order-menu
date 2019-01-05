@@ -1,0 +1,31 @@
+<!--pages/previewOrder/previewOrder.wxml-->
+<view class='preview-order'>
+  <view class='order-title'>订单预览</view>
+  <view class='order-detail'>
+    <view class='order-item order-head'>
+      <view class='order-name'>菜品名称</view>
+      <view class='order-num'>数量</view>
+      <view class='order-price'>总价</view>
+    </view>
+    <view class='order-item' wx:for="{{cartList.list}}" wx:key='id'>
+      <view class='order-name'>{{item.name}}</view>
+      <view class='order-num'>x{{item.count}}</view>
+      <view class='order-price'>￥{{item.price*item.count}}</view>
+    </view>
+    <view class='order-item totle-order'>
+      <view class='order-name'>合计</view>
+      <view class='order-num'>x{{cartList.count}}</view>
+      <view class='order-price'>￥{{cartList.total}}</view>
+    </view>
+  </view>
+  <view class='order-remark'>
+    <view class='remark-title'>电话</view>
+    <input type='number' bindinput='changePhone' value='{{phone}}' class='remark-content' placeholder='电话可以方便联系到你哦'></input>
+    <view class='remark-title'>备注</view>
+    <input class='remark-content' bindinput='changeRemark' placeholder='可以要求口味等信息呦'></input>
+  </view>
+  <view class='order-btn'>
+    <text class='addMore' bindtap='goback'>再点一点</text>
+    <text class='sureOrder'bindtap='goorder'>确认下单</text>
+  </view>
+</view>

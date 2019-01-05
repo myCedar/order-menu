@@ -1,0 +1,46 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/menu/menu",
+    "pages/order/order",
+    "pages/previewOrder/previewOrder",
+    "pages/orderDetail/orderDetail",
+    "pages/phone/phone",
+    "pages/evaluate/evaluate",
+    "pages/setting/setting"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "cwsh",
+    "navigationBarTextStyle":"black",
+    "enablePullDownRefresh": true
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wxbdba0216200dee6a"
+  ],
+  "tabBar":{
+    "position": "bottom",
+    "backgroundColor": "#f9f9f9",
+    "borderStyle": "#aaa",
+    "selectedColor": "#f58220",
+    "list":[{
+      "pagePath":"pages/menu/menu",
+      "text":"菜单",
+      "iconPath": "images/select.png",
+      "selectedIconPath": "images/select-red.png"
+    },
+    {
+      "pagePath": "pages/order/order",
+      "text": "订单",
+      "iconPath": "images/order.png",
+      "selectedIconPath": "images/order-red.png"
+    },
+    {
+      "pagePath": "pages/setting/setting",
+      "text": "设置",
+      "iconPath": "images/me.png",
+      "selectedIconPath": "images/me-red.png"
+    }]
+  }
+}
